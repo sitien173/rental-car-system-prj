@@ -1,0 +1,16 @@
+<div class="wrapper" *ngIf="isAuth; else notAuth">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper" style="min-height: 1302px;">
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  <div id="sidebar-overlay"></div>
+</div>
+<ng-template #notAuth>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>

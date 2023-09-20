@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="SmartASP">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/PersonalTool.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/NGOT.ApplicationCore.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/NGOT.Domain.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/WebApp.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Tests/Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/obj/Debug/net6.0/NGOT.ApplicationCore.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/obj/Debug/net6.0/NGOT.ApplicationCore.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/obj/Debug/net6.0/NGOT.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/AssemblyReference.cs" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/obj/Debug/net6.0/NGOT.Domain.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/obj/Debug/net6.0/NGOT.Domain.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/obj/Debug/net6.0/NGOT.Domain.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Controllers/HomeController.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Controllers/ObjectInitializerController.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Controllers/VariantConfigurationController.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Properties/launchSettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/obj/Debug/net7.0/WebApp.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/obj/Debug/net7.0/WebApp.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/obj/Debug/net7.0/WebApp.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/obj/Debug/net7.0/WebApp.RazorAssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/Home/Index.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/ObjectInitializer/Index.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/ObjectInitializer/Index.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/VariantConfiguration/Index.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/VariantConfiguration/Index.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/_ViewImports.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/_ViewImports.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/_ViewStart.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Views/_ViewStart.cshtml" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/img/img_2.png" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/img/img_1.png" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/css/site.css" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/js/site.js" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Model/ObjectInitializer/ObjectInitializerRequest.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Installers/ApplicationServiceInstaller.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Installers/SettingsInstaller.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/appsettings.Development.json" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/appsettings.json" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Dockerfile" web="/" />
+            <mapping local="$PROJECT_DIR$/.dockerignore" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.3.2/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Tests/obj/Debug/net6.0/Tests.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Tests/obj/Debug/net6.0/Tests.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Tests/obj/Debug/net6.0/Tests.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/nunit3testadapter/4.3.0/build/netcoreapp2.1/NUnit3.TestAdapter.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/nunit3testadapter/4.3.0/build/netcoreapp2.1/NUnit3.TestAdapter.pdb" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/nunit3testadapter/4.3.0/build/netcoreapp2.1/nunit.engine.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/nunit3testadapter/4.3.0/build/netcoreapp2.1/nunit.engine.api.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/nunit3testadapter/4.3.0/build/netcoreapp2.1/nunit.engine.core.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/nunit3testadapter/4.3.0/build/netcoreapp2.1/testcentric.engine.metadata.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.exe" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.dll" web="/" />
+            <mapping local="$PROJECT_DIR$/Tests/UnitTest1.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/Tests/Usings.cs" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/ValueObject/Variant.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/Settings/IndentSettings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Domain/Common/ISettings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/js/global.setup.js" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/js/ObjectInitializer.Index.js" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/js/VariantConfiguration.Index.js" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Adapters/IObjectInitializerAdapter.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Common/IScoped.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Common/ISettings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Common/ISingleton.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Common/ITransient.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Services/IObjectInitializerService.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.ApplicationCore/Interfaces/Services/IVariantConfigurationService.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Extensions/InstallerServiceExtension.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Installers/IInstaller.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/Installers/ScrutorInstaller.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/WebApp/wwwroot/assets/img/loading.gif" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Infrastructure/NGOT.Infrastructure.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Infrastructure/obj/Debug/net6.0/NGOT.Infrastructure.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Infrastructure/obj/Debug/net6.0/NGOT.Infrastructure.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Infrastructure/obj/Debug/net6.0/NGOT.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/NGOT.Infrastructure/Class1.cs" web="/" />
+            <mapping local="C:/Program Files/dotnet/sdk/7.0.202/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

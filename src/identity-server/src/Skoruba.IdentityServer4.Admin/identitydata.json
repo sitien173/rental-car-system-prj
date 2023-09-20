@@ -1,0 +1,25 @@
+﻿{
+  "IdentityData": {
+    "Roles": [
+      {
+        "Name": "AdminAdministrator"
+      }
+    ],
+    "Users": [
+      {
+        "Username": "admin",
+        "Password": "P@ssw0rd1",
+        "Email": "sitienbmt@gmail.com",
+        "Roles": [
+          "AdminAdministrator"
+        ],
+        "Claims": [
+          {
+            "Type": "name",
+            "Value": "admin"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <RootNamespace>NGOT.API</RootNamespace>
+        <UserSecretsId>61a148b0-e4d5-4dac-841c-88d3a789e41d</UserSecretsId>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="ConfigureAwait.Fody" Version="3.3.2"/>
+        <PackageReference Include="Fody" Version="6.8.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0"/>
+        <PackageReference Include="Hangfire.AspNetCore" Version="1.8.4"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Serilog.AspNetCore" Version="7.0.0"/>
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.1.1-dev-00910"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
+        <Content Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Remove="wwwroot\ProfilePictures\Thumb\b583f139-974b-4c0e-9658-67821fd55a44.JPG"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ApplicationCore\NGOT.ApplicationCore.csproj"/>
+        <ProjectReference Include="..\NGOT.Infrastructure\NGOT.Infrastructure.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="wwwroot\"/>
+    </ItemGroup>
+</Project>

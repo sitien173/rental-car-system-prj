@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EfCoreDialogsState">
+    <option name="keyValueStorage">
+      <map>
+        <entry key="Common:303e9c80-37d5-4bab-8655-b9b30ba96cc5:dbContext" value="NGOT.Infrastructure.Data.ApplicationDbContext" />
+        <entry key="Common:601cf04b-f5cd-4872-8666-6e7631e4c2a3:dbContext" value="Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`1" />
+        <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:idempotent" value="false" />
+        <entry key="Common:noBuild" value="false" />
+        <entry key="Common:noTransactions" value="false" />
+        <entry key="Common:outputFilePath" value="Scripts/script.sql" />
+        <entry key="Common:outputFolder" value="Migrations" />
+        <entry key="Common:useDefaultConnection" value="true" />
+      </map>
+    </option>
+  </component>
+</project>

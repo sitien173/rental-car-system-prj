@@ -1,0 +1,16 @@
+.e-popup-open {
+  width: fit-content !important;
+  height: fit-content !important;
+  min-width: 400px !important;
+  min-height: 400px !important;
+}
+
+.e-dialog .e-dlg-content {
+  margin: 30px 0 !important;
+}
+
+.e-dialog .e-footer-content {
+  margin-bottom: 30px !important;
+}
+
+

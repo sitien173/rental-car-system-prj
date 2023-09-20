@@ -1,0 +1,61 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Xe</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" routerLinkActive="/cars">Car Management</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <ejs-grid #grid
+              (actionBegin)="actionBegin($event)"
+              (actionComplete)="saveChanges($event)"
+              [allowExcelExport]="allowExcelExport"
+              [allowFiltering]="allowFiltering"
+              [allowGrouping]="allowGrouping"
+              [allowPaging]="allowPaging"
+              [allowPdfExport]="allowPdfExport"
+              [allowReordering]="allowReordering"
+              [allowResizing]="allowResizing"
+              [allowSorting]="allowSorting"
+              [allowTextWrap]="allowTextWrap"
+              [dataSource]="dataSources"
+              [editSettings]="editSettings"
+              [enableAutoFill]="enableAutoFill"
+              [filterSettings]="filterSettings"
+              [loadingIndicator]="loadingIndicator"
+              [pageSettings]="pageSettings"
+              [selectionSettings]="selectionSettings"
+              [showColumnChooser]="showColumnChooser"
+              [toolbar]="toolbar"
+    >
+      <e-columns>
+        <e-column type="checkbox"></e-column>
+        <e-column [isPrimaryKey]="true" [visible]="false" field="id" headerText="ID" isIdentity="true" textAlign="center"></e-column>
+        <e-column [validationRules]="required" field="name" headerText="Name"></e-column>
+        <e-column [validationRules]="required" field="specificity.transmission" headerText="Transmission"></e-column>
+        <e-column [validationRules]="required" field="specificity.fuel" headerText="Fuel"></e-column>
+        <e-column [validationRules]="required" field="specificity.seat" headerText="Seat" [format]="numericFormat" [editType]="numericEdit" ></e-column>
+        <e-column [validationRules]="required" field="specificity.fuelConsumption" headerText="Fuel Consumption"></e-column>
+        <e-column [validationRules]="required" clipMode="EllipsisWithTooltip" field="description" headerText="Description"></e-column>
+        <e-column [edit]="editBrandOption" [validationRules]="required" [valueAccessor]="brandValueAccessor" [editType]="dropdownEdit" field="brand" headerText="Brand"></e-column>
+        <e-column [edit]="editCarTypeOption" [validationRules]="required" [valueAccessor]="carTypeValueAccessor" field="carType" headerText="Type"></e-column>
+        <e-column [edit]="editFeaturesOption" [validationRules]="required" [valueAccessor]="featuresValueAccessor" clipMode="EllipsisWithTooltip" field="features" headerText="Feature"></e-column>
+        <e-column [edit]="editAdditionalFeesOption" [validationRules]="required" [valueAccessor]="additionalFeesValueAccessor" clipMode="EllipsisWithTooltip" field="additionalFees" headerText="Additional Fees"></e-column>
+        <e-column [edit]="editRentalDocumentsOption" [validationRules]="required" [valueAccessor]="rentalDocumentsValueAccessor" clipMode="EllipsisWithTooltip" field="rentalDocuments" headerText="Rental Documents"></e-column>
+        <e-column [format]="currencyFormat" [validationRules]="required" field="price" [editType]="numericEdit" headerText="Price"></e-column>
+        <e-column [validationRules]="required" clipMode="EllipsisWithTooltip" field="rule" headerText="Rule"></e-column>
+        <e-column [edit]="editStatusOption" [valueAccessor]="statusValueAccessor" field="status" headerText="Status"></e-column>
+        <e-column [edit]="imagesUploadOption" [showInColumnChooser]="false" [visible]="false" field="images" headerText="Images"></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>

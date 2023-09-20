@@ -1,0 +1,2 @@
+dotnet ef migrations add InitialCreate -s WebApp -p NGOT.Infrastructure -c MembershipDbContext
+dotnet ef database update -s ./WebApp -p ./NGOT.Infrastructure -c MembershipDbContext --connection "Server=localhost;Database=membership;User Id=sa;Password=123;TrustServerCertificate=True"

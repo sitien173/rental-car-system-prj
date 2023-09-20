@@ -1,0 +1,93 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Giao xe</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" routerLinkActive="/damage-assessment">Vehicle handover managements</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="control-section">
+      <ejs-grid (actionBegin)="actionBegin($event)"
+                (actionComplete)="saveChanges($event)"
+                [allowExcelExport]='allowExcelExport'
+                [allowFiltering]='allowFiltering'
+                [allowGrouping]='allowGrouping'
+                [allowPaging]='allowPaging'
+                [allowPdfExport]='allowPdfExport'
+                [allowReordering]='allowReordering'
+                [allowResizing]='allowResizing'
+                [allowSorting]='allowSorting'
+                [allowTextWrap]='allowTextWrap'
+                [dataSource]='dataSources'
+                [editSettings]='editSettings'
+                [enableAutoFill]="enableAutoFill"
+                [filterSettings]='filterSettings'
+                [loadingIndicator]='loadingIndicator'
+                [pageSettings]='pageSettings'
+                [selectionSettings]='selectionSettings'
+                [showColumnChooser]='showColumnChooser'
+                [toolbar]="toolbar"
+      >
+        <e-columns>
+          <e-column type='checkbox' width="50px"></e-column>
+          <e-column [isPrimaryKey]='true' [visible]='false' field='id' headerText='ID' isIdentity='true'></e-column>
+          <e-column field='handoverDate' headerText='Ngày giao xe' type="date" [format]="dateFormat"></e-column>
+          <e-column field='checkListItems' headerText='Danh mục kiểm tra' [valueAccessor]="checkListItemsValueAccessor"></e-column>
+          <e-column field='handoverType' headerText='Loại giao xe' [valueAccessor]="handoverTypeValueAccessor"></e-column>
+          <e-column field='rentalContractId' headerText='Mã hợp đồng'></e-column>
+        </e-columns>
+        <ng-template #editSettingsTemplate let-data>
+          <div [formGroup]="vehicleHandoverForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <ejs-dropdownlist id="handoverType"  formControlName="handoverType" [dataSource]='handoverTypeData' [fields]="{value: 'id', text: 'name'}" placeholder="Loại giao xe" floatLabelType='Always'></ejs-dropdownlist>
+                <div *ngIf="vehicleHandoverForm.controls['handoverType']?.invalid && (vehicleHandoverForm.controls['handoverType']?.dirty || vehicleHandoverForm.controls['handoverType']?.touched)" class="text-danger">
+                  <div *ngIf="vehicleHandoverForm.controls['handoverType']?.errors?.['required']">
+                    Loại giao xe không được để trống
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <ejs-dropdownlist id="rentalContractId" formControlName="rentalContractId" [dataSource]='rentalContractData' [fields]="{value: 'id', text: 'id'}" placeholder="Mã hợp đồng thuê xe" floatLabelType='Always'></ejs-dropdownlist>
+                <div *ngIf="vehicleHandoverForm.controls['rentalContractId']?.invalid && (vehicleHandoverForm.controls['rentalContractId']?.dirty || vehicleHandoverForm.controls['rentalContractId']?.touched)" class="text-danger">
+                  <div *ngIf="vehicleHandoverForm.controls['rentalContractId']?.errors?.['required']">
+                    Mã hợp đồng thuê xe không được để trống
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div formArrayName="checkListItems">
+              <div class="e-card-title">Danh mục kiểm tra</div>
+              <div *ngFor="let checkListItem of checkListItems.controls; let i=index">
+                <div class="form-row" [formGroupName]="i">
+                  <div class="form-group col-md-4">
+                    <ejs-textbox formControlName="name" placeholder="Tên danh mục" floatLabelType='Always'></ejs-textbox>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <ejs-dropdownlist formControlName="status" [dataSource]='checkListItemStatusData' [fields]="{value: 'id', text: 'name'}" placeholder="Tình trạng" floatLabelType='Always'></ejs-dropdownlist>
+                  </div>
+                  <div class="form-group col-md-5">
+                    <div class="d-flex justify-content-around">
+                      <ejs-textbox formControlName="comment" placeholder="Ghi chú" floatLabelType='Always'></ejs-textbox>
+                      <button ejs-button type="button" (click)="removeCheckListItems(i)">-</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button ejs-button isPrimary="true" type="button" (click)="addCheckListItems()">Thêm danh mục kiểm tra</button>
+            </div>
+          </div>
+        </ng-template>
+      </ejs-grid>
+    </div>
+  </div>
+</div>

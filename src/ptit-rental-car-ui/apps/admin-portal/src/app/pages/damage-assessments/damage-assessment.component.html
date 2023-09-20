@@ -1,0 +1,53 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Hư hỏng</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" routerLinkActive="/damage-assessment">Damage Assessment Managements</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="control-section">
+      <ejs-grid (actionComplete)="saveChanges($event)"
+                [allowExcelExport]='allowExcelExport'
+                [allowFiltering]='allowFiltering'
+                [allowGrouping]='allowGrouping'
+                [allowPaging]='allowPaging'
+                [allowPdfExport]='allowPdfExport'
+                [allowReordering]='allowReordering'
+                [allowResizing]='allowResizing'
+                [allowSorting]='allowSorting'
+                [allowTextWrap]='allowTextWrap'
+                [dataSource]='dataSources'
+                [editSettings]='editSettings'
+                [enableAutoFill]="enableAutoFill"
+                [filterSettings]='filterSettings'
+                [loadingIndicator]='loadingIndicator'
+                [pageSettings]='pageSettings'
+                [selectionSettings]='selectionSettings'
+                [showColumnChooser]='showColumnChooser'
+                [toolbar]="toolbar"
+
+
+      >
+        <e-columns>
+          <e-column type='checkbox' width="50px"></e-column>
+          <e-column [isPrimaryKey]='true' [visible]='false' field='id' headerText='ID' isIdentity='true'></e-column>
+          <e-column field='assessmentDate' headerText='Ngày đánh giá' [type]="'date'" [editType]="datePickerEdit" [format]="dateFormat" [validationRules]="required"></e-column>
+          <e-column field='damageDescription' headerText='Mô tả hư hỏng' [validationRules]="required"></e-column>
+          <e-column field='repairCost' headerText='Chi phí sửa chữa' [editType]="numericEdit" [format]="currencyFormat" [validationRules]="required"></e-column>
+          <e-column field='totalCost' headerText='Tổng chi phí' [editType]="numericEdit" [format]="currencyFormat" [validationRules]="required"></e-column>
+          <e-column field='rentalContractId' [editType]="dropdownEdit" [edit]="editRentalContractIdOption" headerText='Hợp đồng thuê' [validationRules]="required"></e-column>
+        </e-columns>
+      </ejs-grid>
+    </div>
+  </div>
+</div>

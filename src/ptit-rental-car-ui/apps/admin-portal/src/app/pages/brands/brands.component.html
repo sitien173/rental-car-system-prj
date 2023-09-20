@@ -1,0 +1,48 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Thương Hiệu</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" routerLinkActive="/brand">Brand Management</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <ejs-grid (actionComplete)="saveChanges($event)"
+              (actionFailure)="handleError($event)"
+              [allowExcelExport]='allowExcelExport'
+              [allowFiltering]='allowFiltering'
+              [allowGrouping]='allowGrouping'
+              [allowPaging]='allowPaging'
+              [allowPdfExport]='allowPdfExport'
+              [allowReordering]='allowReordering'
+              [allowResizing]='allowResizing'
+              [allowSorting]='allowSorting'
+              [allowTextWrap]='allowTextWrap'
+              [dataSource]='dataSources'
+              [editSettings]='editSettings'
+              [enableAutoFill]="enableAutoFill"
+              [filterSettings]='filterSettings'
+              [loadingIndicator]='loadingIndicator'
+              [pageSettings]='pageSettings'
+              [selectionSettings]='selectionSettings'
+              [showColumnChooser]='showColumnChooser'
+              [toolbar]="toolbar"
+
+
+    >
+      <e-columns>
+        <e-column type='checkbox' width="50px"></e-column>
+        <e-column [isPrimaryKey]="true" [visible]="false" field='id' headerText='ID' isIdentity="true" textAlign='center'></e-column>
+        <e-column [validationRules]="required" field='name' headerText='Name'></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>

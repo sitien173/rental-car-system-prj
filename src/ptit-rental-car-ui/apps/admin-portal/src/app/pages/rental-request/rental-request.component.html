@@ -1,0 +1,54 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Yêu cầu thuê xe</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" routerLinkActive="/rental-documents">RentalRequests Management</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <ejs-grid #grid
+              (actionComplete)="saveChanges($event)"
+              (commandClick)='commandClick($event)'
+              [allowExcelExport]='allowExcelExport'
+              [allowFiltering]='allowFiltering'
+              [allowGrouping]='allowGrouping'
+              [allowPaging]='allowPaging'
+              [allowPdfExport]='allowPdfExport'
+              [allowReordering]='allowReordering'
+              [allowResizing]='allowResizing'
+              [allowSorting]='allowSorting'
+              [allowTextWrap]='allowTextWrap'
+              [dataSource]='dataSources'
+              [editSettings]='editSettings'
+              [enableAutoFill]="enableAutoFill"
+              [filterSettings]='filterSettings'
+              [loadingIndicator]='loadingIndicator'
+              [pageSettings]='pageSettings'
+              [selectionSettings]='selectionSettings'
+              [showColumnChooser]='showColumnChooser'
+              [toolbar]="toolbar"
+
+
+    >
+      <e-columns>
+        <e-column type='checkbox' width="50px"></e-column>
+        <e-column [isPrimaryKey]="true" [visible]="false" field='id' headerText='ID' isIdentity="true" textAlign='center'></e-column>
+        <e-column [allowEditing]="false" field='userId' headerText='Mã người đặt' textAlign='center'></e-column>
+        <e-column [allowEditing]="false" field='carId' headerText='Mã xe' textAlign='center'></e-column>
+        <e-column [allowEditing]="false" [format]="dateFormat" type="date" [editType]="datePickerEdit" field='startDate' headerText='Ngày thuê' textAlign='center'></e-column>
+        <e-column [allowEditing]="false" [format]="dateFormat" [editType]="datePickerEdit" field='endDate' type="date" headerText='Ngày trả' textAlign='center'></e-column>
+        <e-column [edit]="editStatusOption" [valueAccessor]="statusValueAccessor" field='status' headerText='Trạng thái' textAlign='center'></e-column>
+        <e-column [commands]="commands" headerText="Command"></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>
