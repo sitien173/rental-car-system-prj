@@ -16,7 +16,6 @@ const routes: Routes = [
     GridAllModule,
     CheckBoxAllModule
   ],
-  providers: [],
   exports: [AdditionalFeesComponent]
 })
 export class AdditionalFeesModule {

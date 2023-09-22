@@ -7,6 +7,7 @@ export * from './brands/brand';
 export * from './brands/create-brand';
 export * from './brands/update-brand';
 export * from './cars/car';
+export * from './cars/car-item';
 export * from './cars/create-car';
 export * from './cars/update-car';
 export * from './cartype/cartype';

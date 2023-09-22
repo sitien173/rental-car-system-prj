@@ -1,19 +1,12 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {BaseCRUDComponent} from "../base-crudcomponent";
-import {CarService} from "./car.service";
+import {Component, OnInit} from '@angular/core';
+import {BaseComponent} from "../base.component";
 import {ToastrService} from "ngx-toastr";
-import {ColumnModel, DataSourceChangedEventArgs, GridComponent, IEditCell} from "@syncfusion/ej2-angular-grids";
-import {BrandService} from "../brands/brand.service";
-import {FeatureService} from "../features/feature.service";
+import {ColumnModel, DataSourceChangedEventArgs, IEditCell} from "@syncfusion/ej2-angular-grids";
 import {firstValueFrom} from "rxjs";
 import {
-  CheckBoxSelectionService,
   DropDownList,
   MultiSelect
 } from "@syncfusion/ej2-angular-dropdowns";
-import {CartypeService} from "../cartype/cartype.service";
-import {AdditionalFeesService} from "../additional-fees/additional-fees.service";
-import {RentalDocumentsService} from "../rental-documents/rental-documents.service";
 import {FilesPropModel, Uploader} from "@syncfusion/ej2-angular-inputs";
 import {
   AdditionalFees,
@@ -26,14 +19,22 @@ import {
   RentalDocuments, UpdateCar, UploadFileResponse
 } from '@ptit.rentalcar.data-models';
 import {environment} from "@ptit.rentalcar.app-config";
+import {
+  AdditionalFeesService,
+  BrandService,
+  CarService,
+  CartypeService,
+  FeatureService,
+  RentalDocumentsService
+} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css'],
-  providers: [CheckBoxSelectionService]
+  providers: [CarService, BrandService, FeatureService, CartypeService, RentalDocumentsService, AdditionalFeesService]
 })
-export class CarsComponent extends BaseCRUDComponent<Car> implements OnInit {
+export class CarsComponent extends BaseComponent<Car> implements OnInit {
   editBrandOption?: IEditCell;
   editCarTypeOption?: IEditCell;
   editFeaturesOption?: IEditCell;
@@ -41,9 +42,6 @@ export class CarsComponent extends BaseCRUDComponent<Car> implements OnInit {
   editAdditionalFeesOption?: IEditCell;
   imagesUploadOption?: IEditCell;
   editStatusOption?: IEditCell;
-
-  @ViewChild('grid', {static: true})
-  public grid?: GridComponent;
 
   brandData: Brand[];
   brandDropdown: DropDownList;
@@ -319,7 +317,7 @@ export class CarsComponent extends BaseCRUDComponent<Car> implements OnInit {
   }
 
   protected add(data: Car): void {
-    let request = data as CreateCar;
+    const request = data as CreateCar;
     request.featureIds = data.features?.map(f => f.id) || [];
     request.additionalFeeIds = data.additionalFees?.map(f => f.id) || [];
     request.rentalDocumentIds = data.rentalDocuments?.map(f => f.id) || [];
@@ -352,7 +350,7 @@ export class CarsComponent extends BaseCRUDComponent<Car> implements OnInit {
   }
 
   protected update(data: Car): void {
-    let request = data as UpdateCar;
+    const request = data as UpdateCar;
     request.featureIds = data.features?.map(f => f.id) || [];
     request.additionalFeeIds = data.additionalFees?.map(f => f.id) || [];
     request.rentalDocumentIds = data.rentalDocuments?.map(f => f.id) || [];

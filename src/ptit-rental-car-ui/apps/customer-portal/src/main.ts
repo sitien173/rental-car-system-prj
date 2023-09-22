@@ -1,7 +1,7 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app/app.module';
 import {loadCldr, registerLicense, setCulture, setCurrencyCode, validateLicense} from '@syncfusion/ej2-base';
-import {enableProdMode, LOCALE_ID} from "@angular/core";
+import {enableProdMode} from "@angular/core";
 import * as viNumberData from 'cldr-data/main/vi/numbers.json';
 import * as viTimeZoneData from 'cldr-data/main/vi/timeZoneNames.json';
 import * as viCaGregorianData from 'cldr-data/main/vi/ca-gregorian.json';

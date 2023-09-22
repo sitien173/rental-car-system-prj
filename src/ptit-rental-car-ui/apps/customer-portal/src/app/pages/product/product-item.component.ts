@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {CarItem} from "@ptit.rentalcar.data-models";
 
 @Component({
   selector: 'app-product-item',
@@ -7,7 +8,5 @@ import {Component, Input} from '@angular/core';
 })
 export class ProductItemComponent {
   @Input()
-  product: any;
-
-  constructor() { }
+  car: CarItem;
 }

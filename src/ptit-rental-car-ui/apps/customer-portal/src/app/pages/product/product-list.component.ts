@@ -1,20 +1,22 @@
-import {Component, Inject, OnInit, Renderer2} from '@angular/core';
-import {DOCUMENT} from "@angular/common";
+import {Component, OnInit} from '@angular/core';
+import {CarService} from "@ptit.rentalcar.shared";
+import {CarItem} from "@ptit.rentalcar.data-models";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  providers: [CarService]
 })
 export class ProductListComponent implements OnInit {
-  constructor(private readonly _renderer2: Renderer2,
-              @Inject(DOCUMENT) private readonly _document: Document) {
+  constructor(private readonly _carService: CarService) {
   }
 
-  ngOnInit(): void {
-    const script = this._renderer2.createElement('script');
-    script.type = `text/javascript`;
-    script.src = `assets/js/main.js`;
-    this._renderer2.appendChild(this._document.body, script);
+  cars: CarItem[] = [];
+
+  ngOnInit() {
+    this._carService.getCarsItem().subscribe(cars => {
+      this.cars = cars;
+    });
   }
 }

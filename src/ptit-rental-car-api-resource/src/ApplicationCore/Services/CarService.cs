@@ -13,6 +13,7 @@ namespace NGOT.ApplicationCore.Services;
 public class CarService : ICarService
 {
     private readonly DbSet<Car> _carsRepository;
+    private readonly DbSet<RentalContract> _rentalContractsRepository;
     private readonly ICurrentUserService _currentUserService;
     private readonly DbContext _dbContext;
     private readonly IMapper _mapper;
@@ -23,6 +24,7 @@ public class CarService : ICarService
         _dbContext = dbContext;
         _currentUserService = currentUserService;
         _carsRepository = dbContext.Set<Car>();
+        _rentalContractsRepository = dbContext.Set<RentalContract>();
     }
 
     public Task<List<CarResponse>> GetAllAsync(CancellationToken ct = default)
@@ -113,8 +115,16 @@ public class CarService : ICarService
         var car = await _carsRepository.FindAsync(new object[] { id }, ct);
         Guard.Against.NotFound(id, car, nameof(Car));
 
-        if (car.Status != CarStatusEnum.Available) return false;
+        if (car.Status != CarStatusEnum.Available) 
+            return false;
+        
+        bool canRent = _rentalContractsRepository
+            .Where(x => x.RentalRequest.CarId == id)
+            .All(x => x.RentalRequest.StartDate > request.EndDate || x.RentalRequest.EndDate < request.StartDate);
 
+        if (!canRent)
+            return false;
+        
         car.Status = CarStatusEnum.Rented;
         car.RentalRequests.Add(new RentalRequest
         {

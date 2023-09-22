@@ -1,1 +1,29 @@
-<p>product-detail works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div *ngIf="carData">
+      <h1>{{ carData.name }}</h1>
+      <p>Description: {{ carData.description }}</p>
+      <p>Brand: {{ carData.brand.name }}</p>
+      <p>Type: {{ carData.carType.name }}</p>
+      <p>Transmission: {{ carData.specificity.transmission }}</p>
+      <p>Fuel: {{ carData.specificity.fuel }}</p>
+      <p>Seats: {{ carData.specificity.seat }}</p>
+      <p>Fuel Consumption: {{ carData.specificity.fuelConsumption }}</p>
+      <p>Status: {{ carData.status }}</p>
+      <p>Price: {{ carData.price | currency:'USD':'symbol' }}</p>
+
+      <ul>
+        <li *ngFor="let feature of carData.features">{{ feature.name }}</li>
+      </ul>
+
+      <ul>
+        <li *ngFor="let fee of carData.additionalFees">{{ fee.name }}: {{ fee.price }} USD/{{ fee.unit }}</li>
+      </ul>
+
+      <ul>
+        <li *ngFor="let document of carData.rentalDocuments">{{ document.name }}</li>
+      </ul>
+    </div>
+
+  </div>
+</div>

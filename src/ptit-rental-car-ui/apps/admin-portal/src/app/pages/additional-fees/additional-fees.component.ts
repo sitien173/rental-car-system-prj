@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
-import {AdditionalFeesService} from "./additional-fees.service";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {BaseComponent} from "../base.component";
 import {AdditionalFees} from "@ptit.rentalcar.data-models";
+import {AdditionalFeesService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-additional-fees',
   templateUrl: './additional-fees.component.html',
-  styleUrls: ['./additional-fees.component.css']
+  styleUrls: ['./additional-fees.component.css'],
+  providers: [AdditionalFeesService]
 })
-export class AdditionalFeesComponent extends BaseCRUDComponent<AdditionalFees> implements OnInit {
+export class AdditionalFeesComponent extends BaseComponent<AdditionalFees> implements OnInit {
   constructor(private readonly additionalFeesService: AdditionalFeesService,
               private readonly toastService: ToastrService
   ) {

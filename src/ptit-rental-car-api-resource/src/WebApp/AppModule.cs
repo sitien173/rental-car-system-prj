@@ -50,7 +50,7 @@ public class AppModule : IInstaller
 
         services.AddControllers()
             .AddNewtonsoftJson();
-
+        
         services.AddFluentValidationAutoValidation()
             .AddFluentValidationClientsideAdapters();
 

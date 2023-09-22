@@ -1,22 +1,13 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {
-  ColumnChooserService,
-  EditService,
-  ExcelExportService,
-  FilterService,
-  GroupService,
-  IEditCell,
-  PageService,
-  PdfExportService,
-  SortService,
-  ToolbarService
+  IEditCell
 } from "@syncfusion/ej2-angular-grids";
 import {ToastrService} from "ngx-toastr";
-import {FeatureService} from "./feature.service";
 import {Uploader} from "@syncfusion/ej2-angular-inputs";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {BaseComponent} from "../base.component";
 import {CreateFeature, Feature, Icon, UpdateFeature, UploadFileResponse} from "@ptit.rentalcar.data-models";
 import {environment} from "@ptit.rentalcar.app-config";
+import {FeatureService} from "@ptit.rentalcar.shared";
 
 
 @Component({
@@ -24,12 +15,11 @@ import {environment} from "@ptit.rentalcar.app-config";
   templateUrl: './feature.component.html',
   styleUrls: ['./feature.component.css'],
   providers: [
-    PageService, GroupService, SortService, FilterService, EditService,
-    ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService
+    FeatureService
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class FeatureComponent extends BaseCRUDComponent<Feature> implements OnInit {
+export class FeatureComponent extends BaseComponent<Feature> implements OnInit {
   dpParams: IEditCell;
   uploader?: Uploader;
   iconUploaded?: Icon;

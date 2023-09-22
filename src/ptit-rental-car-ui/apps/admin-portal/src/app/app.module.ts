@@ -23,35 +23,38 @@ import {FooterComponent} from "./core/layout/footer/footer.component";
 import {SidebarComponent} from "./core/layout/sidebar/sidebar.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent
-  ],
-  imports: [
-    ToastrModule.forRoot(),
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    BrandModule,
-    FeatureModule,
-    CartypeModule,
-    AdditionalFeesModule,
-    CarModule,
-    RentalDocumentsModule,
-    RentalRequestModule,
-    RentalContractsModule,
-    VehicleHandoverModule,
-    PaymentsModule,
-    DamageAssessmentModule,
-    VehicleHandoverModule,
-    AppRoutingModule,
-    OidcModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        SidebarComponent
+    ],
+    imports: [
+        ToastrModule.forRoot(),
+        CommonModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        SharedModule,
+        BrandModule,
+        FeatureModule,
+        CartypeModule,
+        AdditionalFeesModule,
+        CarModule,
+        RentalDocumentsModule,
+        RentalRequestModule,
+        RentalContractsModule,
+        VehicleHandoverModule,
+        PaymentsModule,
+        DamageAssessmentModule,
+        VehicleHandoverModule,
+        AppRoutingModule,
+        OidcModule,
+    ],
+    providers: [],
+    exports: [
+        FooterComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -17,6 +17,12 @@ import {DatePickerModule, DateTimePickerAllModule} from "@syncfusion/ej2-angular
 import {HeaderComponent} from "./core/layout/header/header.component";
 import {FooterComponent} from "./core/layout/footer/footer.component";
 import {SharedModule} from "@ptit.rentalcar.shared";
+import {ToastrModule} from "ngx-toastr";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AppBarModule, CarouselModule, MenuModule, SidebarModule} from "@syncfusion/ej2-angular-navigations";
+import {ButtonModule} from "@syncfusion/ej2-angular-buttons";
+import {TextBoxModule} from "@syncfusion/ej2-angular-inputs";
 
 @NgModule({
   declarations: [
@@ -35,12 +41,22 @@ import {SharedModule} from "@ptit.rentalcar.shared";
     ServiceComponent
   ],
   imports: [
+    ToastrModule.forRoot(),
+    CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
-    AppRoutingModule,
-    OidcModule,
     DatePickerModule,
     DateTimePickerAllModule,
+    AppRoutingModule,
+    OidcModule,
+    CarouselModule,
+    AppBarModule,
+    ButtonModule,
+    MenuModule,
+    NgOptimizedImage,
+    SidebarModule,
+    TextBoxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,22 @@
-<div class="car-wrap rounded ftco-animate">
-  <div class="img rounded d-flex align-items-end" [style.background-image]="'url(' + product.image + ')'">
+<div class="e-card">
+  <div class="e-card-image">
+    <div class="e-card-title">Audi A4</div>
+    <img [src]="car.image" alt="Sample"/>
   </div>
-  <div class="text">
-    <h2 class="mb-0"><a href="javascript:void(0)" [routerLink]="'/products/' + product.id">{{product.name}}</a></h2>
-    <div class="d-flex mb-3">
-      <span class="cat">Suv</span>
-      <p class="price ml-auto">$500 <span>/day</span></p>
-    </div>
-    <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="javascript:void(0)" [routerLink]="'/products/' + product.id" class="btn btn-secondary py-2 ml-1">Details</a></p>
+  <div class="e-card-content">
+    {{car.brand}}
+  </div>
+  <div class="e-card-content">
+    {{car.carType}}
+  </div>
+  <div class="e-card-content">
+    {{car.description}}
+  </div>
+  <div class="d-flex justify-content-end">
+    <h6 class="text-primary">{{car.price | vndCurrency}}</h6>
+  </div>
+  <div class="e-card-actions d-flex justify-content-end">
+    <button class="e-card-btn" [routerLink]="'/products/' + car.id" >View Detail</button>
+    <button class="e-card-btn">Book Now</button>
   </div>
 </div>

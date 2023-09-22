@@ -1,54 +1,38 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {
-  ColumnChooserService,
-  ColumnModel, DataSourceChangedEventArgs,
-  EditService,
-  ExcelExportService,
-  FilterService,
-  GridComponent,
-  GroupService,
-  PageService,
-  PdfExportService, SaveEventArgs,
-  SortService,
-  ToolbarService
-} from "@syncfusion/ej2-angular-grids";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ColumnModel, SaveEventArgs} from "@syncfusion/ej2-angular-grids";
+import {BaseComponent} from "../base.component";
 import {ToastrService} from "ngx-toastr";
-import {RentalContractsService} from "../rental-contracts/rental-contracts.service";
-import {VehicleHandoverService} from "./vehicle-handover.service";
 import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
-import { FormValidators } from '@syncfusion/ej2-angular-inputs';
-import {OidcSecurityService} from "angular-auth-oidc-client";
+import {FormValidators} from '@syncfusion/ej2-angular-inputs';
 import {
-  CheckListItemStatusEnumDescriptions, CreateVehicleHandover,
+  CheckListItemStatusEnumDescriptions,
+  CreateVehicleHandover,
   HandoverTypeEnumDescriptions,
   RentalContract,
-  SelectListItem, UpdateVehicleHandover,
+  SelectListItem,
+  UpdateVehicleHandover,
   VehicleHandover
 } from "@ptit.rentalcar.data-models";
+import {RentalContractsService, VehicleHandoverService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-vehicle-handover',
   templateUrl: './vehicle-handover.component.html',
   styleUrls: ['./vehicle-handover.component.css'],
   providers: [
-    PageService, GroupService, SortService, FilterService, EditService,
-    ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService
+    VehicleHandoverService, RentalContractsService
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class VehicleHandoverComponent extends BaseCRUDComponent<VehicleHandover> implements OnInit {
+export class VehicleHandoverComponent extends BaseComponent<VehicleHandover> implements OnInit {
   rentalContractData?: RentalContract[] | any;
   handoverTypeData?: SelectListItem[] | any;
   checkListItemStatusData?: SelectListItem[] | any;
-  @ViewChild('grid', {static: true})
-  grid?: GridComponent;
   vehicleHandoverForm: FormGroup;
   constructor(private readonly toastService: ToastrService,
               private readonly vehicleHandoverService: VehicleHandoverService,
               private readonly rentalContractService: RentalContractsService,
-              private readonly formBuilder: FormBuilder,
-              private readonly oidcSecurityService: OidcSecurityService
+              private readonly formBuilder: FormBuilder
   ) {
     super();
   }

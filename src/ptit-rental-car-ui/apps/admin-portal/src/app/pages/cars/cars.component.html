@@ -36,9 +36,11 @@
               [selectionSettings]="selectionSettings"
               [showColumnChooser]="showColumnChooser"
               [toolbar]="toolbar"
+              [autoFit]="autoFit"
+              (toolbarClick)="toolbarClick($event)"
     >
       <e-columns>
-        <e-column type="checkbox"></e-column>
+        <e-column type="checkbox" width="50px"></e-column>
         <e-column [isPrimaryKey]="true" [visible]="false" field="id" headerText="ID" isIdentity="true" textAlign="center"></e-column>
         <e-column [validationRules]="required" field="name" headerText="Name"></e-column>
         <e-column [validationRules]="required" field="specificity.transmission" headerText="Transmission"></e-column>

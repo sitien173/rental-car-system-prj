@@ -9,8 +9,7 @@ namespace NGOT.Infrastructure.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("""
-                                 CREATE PROCEDURE GetFilesInDb
+            migrationBuilder.Sql(@"CREATE PROCEDURE GetFilesInDb
                                     AS
                                     BEGIN
                                         SET NOCOUNT ON;
@@ -23,9 +22,7 @@ namespace NGOT.Infrastructure.Migrations
                                         -- Remove the trailing 'UNION ALL' from the last query
                                         SET @DataQuery = LEFT(@DataQuery, LEN(@DataQuery) - 10);
                                         EXEC sp_executesql @DataQuery;
-                                    END
-                                    go
-                                 """);
+                                    END");
             
             migrationBuilder.CreateTable(
                 name: "AdditionalFees",

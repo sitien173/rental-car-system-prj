@@ -1,18 +1,10 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {
-  ColumnChooserService,
-  EditService, ExcelExportService,
-  FilterService, GridComponent,
-  GroupService, IEditCell,
-  PageService, PdfExportService,
-  SortService,
-  ToolbarService
+  IEditCell
 } from "@syncfusion/ej2-angular-grids";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {BaseComponent} from "../base.component";
 import {DropDownList} from "@syncfusion/ej2-angular-dropdowns";
 import {ToastrService} from "ngx-toastr";
-import {RentalContractsService} from "../rental-contracts/rental-contracts.service";
-import {DamageAssessmentService} from "./damage-assessment.service";
 import {firstValueFrom} from "rxjs";
 import {
   CreateDamageAssessment,
@@ -20,6 +12,7 @@ import {
   RentalContract,
   UpdateDamageAssessment
 } from "@ptit.rentalcar.data-models";
+import {DamageAssessmentService, RentalContractsService} from "@ptit.rentalcar.shared";
 
 
 
@@ -28,18 +21,15 @@ import {
   templateUrl: './damage-assessment.component.html',
   styleUrls: ['./damage-assessment.component.css'],
   providers: [
-    PageService, GroupService, SortService, FilterService, EditService,
-    ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService
+    DamageAssessmentService,
+    RentalContractsService
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class DamageAssessmentComponent extends BaseCRUDComponent<DamageAssessment> implements OnInit {
+export class DamageAssessmentComponent extends BaseComponent<DamageAssessment> implements OnInit {
   editRentalContractIdOption: IEditCell;
   rentalContractDropdown: DropDownList;
   rentalContractData: RentalContract[];
-
-  @ViewChild('grid', {static: true})
-  public grid?: GridComponent;
   constructor(private readonly toastService: ToastrService,
               private readonly damageAssessmentService: DamageAssessmentService,
               private readonly rentalContractService: RentalContractsService,

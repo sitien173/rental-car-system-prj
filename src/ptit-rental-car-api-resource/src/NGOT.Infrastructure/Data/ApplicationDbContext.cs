@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using NGOT.ApplicationCore.Entities;
 using NGOT.Common.Enums;
 using NGOT.Infrastructure.Extensions;
@@ -37,17 +36,5 @@ public class ApplicationDbContext : DbContext
 
         builder.ApplyConfigurationsFromAssembly(typeof(GlobalUsing).Assembly);
         base.OnModelCreating(builder);
-    }
-
-    private void SeedRoles(ModelBuilder builder)
-    {
-        var roles = Enum.GetValues<RoleEnum>();
-        foreach (var role in roles)
-            builder.Entity<IdentityRole<Guid>>().HasData(new IdentityRole<Guid>
-            {
-                Id = Guid.NewGuid(),
-                Name = role.ToString(),
-                NormalizedName = role.ToString().ToUpper()
-            });
     }
 }

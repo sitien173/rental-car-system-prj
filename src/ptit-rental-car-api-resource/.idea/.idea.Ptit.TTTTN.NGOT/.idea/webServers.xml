@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="ea4869ed-7941-4768-8ef4-a486c5f5bc2c" name="SmartASP" url="http://toyolek602-001-site1.itempurl.com/">
-        <fileTransfer host="win5005.site4now.net" port="21">
+      <webServer id="ea4869ed-7941-4768-8ef4-a486c5f5bc2c" name="SmartASP" url="http://biyife5047-001-site1.btempurl.com/">
+        <fileTransfer rootFolder="/root" host="win5074.site4now.net" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

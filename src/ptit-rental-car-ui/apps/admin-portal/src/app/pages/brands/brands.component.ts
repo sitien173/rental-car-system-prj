@@ -10,18 +10,18 @@ import {
   SortService,
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
-import {BrandService} from "./brand.service";
 import {ToastrService} from "ngx-toastr";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {BaseComponent} from "../base.component";
 import {Brand, CreateBrand, UpdateBrand} from "@ptit.rentalcar.data-models";
+import {BrandService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-brands',
   templateUrl: './brands.component.html',
   styleUrls: ['./brands.component.css'],
-  providers: [PageService, GroupService, SortService, FilterService, EditService, ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService]
+  providers: [BrandService]
 })
-export class BrandsComponent extends BaseCRUDComponent<Brand> implements OnInit {
+export class BrandsComponent extends BaseComponent<Brand> implements OnInit {
   constructor(private readonly brandService: BrandService,
               private readonly toastService: ToastrService
   ) {

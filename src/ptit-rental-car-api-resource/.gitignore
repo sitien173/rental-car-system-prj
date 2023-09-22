@@ -53,3 +53,5 @@ dlldata.c
 
 # BenchmarkDotNet
 BenchmarkDotNet.Artifacts/
+
+src/WebApp/appsettings.json

@@ -1,32 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
-    </button>
+<div class="control-container">
+  <ejs-appbar colorMode="Primary">
+    <button #defaultButtonMenu ejs-button cssClass="e-inherit" iconCss="e-icons e-menu"></button>
+    <button #defaultButtonHome ejs-button cssClass="e-inherit">Home</button>
+    <button #defaultButtonAbout ejs-button cssClass="e-inherit">About</button>
+    <button #defaultButtonProducts routerLink="/products" ejs-button cssClass="e-inherit">Products</button>
+    <button #defaultButtonContacts ejs-button cssClass="e-inherit">Contacts</button>
+    <div class="e-appbar-spacer"></div>
+    <div class="e-appbar-separator"></div>
 
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item" routerLinkActive="active"><a href="javascript:void(0)" routerLink="/home" class="nav-link">Home</a></li>
-        <li class="nav-item" routerLinkActive="active"><a href="javascript:void(0)" routerLink="/about" class="nav-link">About</a></li>
-        <li class="nav-item" routerLinkActive="active"><a href="javascript:void(0)" routerLink="/service" class="nav-link">Services</a></li>
-        <li class="nav-item" routerLinkActive="active"><a href="javascript:void(0)" routerLink="/products" class="nav-link">Cars</a></li>
-        <li class="nav-item" routerLinkActive="active"><a href="javascript:void(0)" routerLink="/blog" class="nav-link">Blog</a></li>
-        <li class="nav-item" routerLinkActive="active"><a href="javascript:void(0)" routerLink="/contact" class="nav-link">Contact</a></li>
-        <li class="nav-item" *ngIf="!isAuthenticated"><a href="#" (click)="signIn()" class="nav-link">Sign In</a></li>
-        <li class="nav-item dropdown" *ngIf="isAuthenticated">
-          <div class="nav-link">
-            <a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Tài khoản <i class="fas fa-cogs"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#" (click)="userInfo()">Thông tin tài khoản</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" (click)="signOut()">Đăng xuất</a>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <ejs-menu *ngIf="isAuthenticated else notAuth" cssClass="e-inherit" [items]='profileMenu'></ejs-menu>
+    <ng-template #notAuth>
+      <button #defaultButtonLogin (click)="signIn()" ejs-button cssClass="e-inherit">Login</button>
+    </ng-template>
+  </ejs-appbar>
+</div>

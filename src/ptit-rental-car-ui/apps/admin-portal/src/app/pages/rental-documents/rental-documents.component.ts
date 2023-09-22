@@ -1,27 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {
-  ColumnChooserService,
-  EditService,
-  ExcelExportService,
-  FilterService,
-  GroupService,
-  PageService,
-  PdfExportService,
-  SortService,
-  ToolbarService
-} from "@syncfusion/ej2-angular-grids";
 import {ToastrService} from "ngx-toastr";
-import {BaseCRUDComponent} from "../base-crudcomponent";
-import {RentalDocumentsService} from "./rental-documents.service";
+import {BaseComponent} from "../base.component";
 import {CreateRentalDocuments, RentalDocuments, UpdateRentalDocuments} from "@ptit.rentalcar.data-models";
+import {RentalDocumentsService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-rental-documents',
   templateUrl: './rental-documents.component.html',
   styleUrls: ['./rental-documents.component.css'],
-  providers: [PageService, GroupService, SortService, FilterService, EditService, ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService]
+  providers: [RentalDocumentsService]
 })
-export class RentalDocumentsComponent extends BaseCRUDComponent<RentalDocuments> implements OnInit {
+export class RentalDocumentsComponent extends BaseComponent<RentalDocuments> implements OnInit {
   constructor(private readonly documentsService: RentalDocumentsService,
               private readonly toastService: ToastrService
   ) {

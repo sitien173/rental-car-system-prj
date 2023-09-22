@@ -7,7 +7,6 @@ import {UploadFileResponse} from "@ptit.rentalcar.data-models";
   providedIn: 'root'
 })
 export class FileUploadService {
-
   constructor(private readonly httpclient: HttpClient) {
   }
 

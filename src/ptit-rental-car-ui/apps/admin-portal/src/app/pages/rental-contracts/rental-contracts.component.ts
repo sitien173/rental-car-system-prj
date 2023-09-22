@@ -1,41 +1,23 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {
-  ColumnChooserService,
-  ColumnModel,
-  CommandColumnService,
-  DataSourceChangedEventArgs,
-  EditService,
-  ExcelExportService,
-  FilterService,
-  GridComponent,
-  GroupService,
-  IEditCell,
-  PageService,
-  PdfExportService,
-  SortService,
-  ToolbarItems,
-  ToolbarService
-} from "@syncfusion/ej2-angular-grids";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {Component, OnInit} from '@angular/core';
+import {ColumnModel, DataSourceChangedEventArgs, IEditCell, ToolbarItems} from "@syncfusion/ej2-angular-grids";
+import {BaseComponent} from "../base.component";
 import {ToastrService} from "ngx-toastr";
-import {RentalContractsService} from "./rental-contracts.service";
 import {DropDownList} from "@syncfusion/ej2-angular-dropdowns";
 import {RentalContract, RentalContractStatusEnumDescriptions, UpdateRentalContract} from "@ptit.rentalcar.data-models";
+import {RentalContractsService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-rental-contracts',
   templateUrl: './rental-contracts.component.html',
   styleUrls: ['./rental-contracts.component.css'],
-  providers: [PageService, GroupService, SortService, FilterService, EditService, ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService, CommandColumnService]
+  providers: [RentalContractsService]
 })
-export class RentalContractComponent extends BaseCRUDComponent<RentalContract> implements OnInit {
+export class RentalContractComponent extends BaseComponent<RentalContract> implements OnInit {
   override toolbar: ToolbarItems[] = ['Edit', 'Delete', 'Update', 'Search', 'Cancel', 'ColumnChooser'];
   editStatusOption: IEditCell;
   statusDropdown: DropDownList;
   statusData: { value: string, name: string }[];
 
-  @ViewChild('grid', {static: true})
-  public grid?: GridComponent;
   constructor(private readonly toastService: ToastrService,
               private readonly rentalContractService: RentalContractsService,
   ) {

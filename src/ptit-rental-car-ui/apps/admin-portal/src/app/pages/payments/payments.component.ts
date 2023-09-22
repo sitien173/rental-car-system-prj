@@ -1,41 +1,26 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {
-  ColumnChooserService,
-  ColumnModel,
-  CommandColumnService,
-  EditService, EditSettingsModel,
-  ExcelExportService,
-  FilterService,
-  GridComponent,
-  GroupService,
-  IEditCell,
-  PageService,
-  PdfExportService,
-  SortService,
-  ToolbarItems,
-  ToolbarService
-} from "@syncfusion/ej2-angular-grids";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {Component, OnInit} from '@angular/core';
+import {ColumnModel, EditSettingsModel, IEditCell, ToolbarItems} from "@syncfusion/ej2-angular-grids";
+import {BaseComponent} from "../base.component";
 import {ToastrService} from "ngx-toastr";
-import {PaymentService} from "./payment.service";
 import {DropDownList} from "@syncfusion/ej2-angular-dropdowns";
-import {RentalContractsService} from "../rental-contracts/rental-contracts.service";
 import {firstValueFrom} from "rxjs";
 import {
   CreatePayment,
   Payment,
-  PaymentMethodEnumDescriptions, PaymentStatusEnumDescriptions,
+  PaymentMethodEnumDescriptions,
+  PaymentStatusEnumDescriptions,
   PaymentTypeEnumDescriptions,
   RentalContract
 } from "@ptit.rentalcar.data-models";
+import {PaymentService, RentalContractsService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.css'],
-  providers: [PageService, GroupService, SortService, FilterService, EditService, ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService, CommandColumnService]
+  providers: [PaymentService, RentalContractsService]
 })
-export class PaymentsComponent extends BaseCRUDComponent<Payment> implements OnInit {
+export class PaymentsComponent extends BaseComponent<Payment> implements OnInit {
   override toolbar: ToolbarItems[] = ['Add', 'Delete', 'Update', 'Search', 'Cancel', 'ColumnChooser'];
   override editSettings: EditSettingsModel = {
     allowEditing: false,
@@ -54,9 +39,6 @@ export class PaymentsComponent extends BaseCRUDComponent<Payment> implements OnI
   editRentalContractIdOption: IEditCell;
   rentalContractDropdown: DropDownList;
   rentalContractData: RentalContract[];
-
-  @ViewChild('grid', {static: true})
-  public grid?: GridComponent;
   constructor(private readonly toastService: ToastrService,
               private readonly paymentService: PaymentService,
               private readonly rentalContractService: RentalContractsService,

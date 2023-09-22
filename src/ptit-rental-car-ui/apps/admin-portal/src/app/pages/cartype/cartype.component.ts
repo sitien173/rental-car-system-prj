@@ -13,22 +13,19 @@ import {
 } from "@syncfusion/ej2-angular-grids";
 import {ToastrService} from "ngx-toastr";
 import {Uploader} from "@syncfusion/ej2-angular-inputs";
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {BaseComponent} from "../base.component";
 import {Cartype, CreateCartype, Icon, UpdateCartype, UploadFileResponse} from "@ptit.rentalcar.data-models";
-import {CartypeService} from "./cartype.service";
 import {environment} from "@ptit.rentalcar.app-config";
+import {CartypeService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-feature',
   templateUrl: './cartype.component.html',
   styleUrls: ['./cartype.component.css'],
-  providers: [
-    PageService, GroupService, SortService, FilterService, EditService,
-    ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService
-  ],
+  providers: [CartypeService],
   encapsulation: ViewEncapsulation.None,
 })
-export class CartypeComponent extends BaseCRUDComponent<Cartype> implements OnInit {
+export class CartypeComponent extends BaseComponent<Cartype> implements OnInit {
   dpParams: IEditCell;
   uploader?: Uploader;
   iconUploaded?: Icon;

@@ -15,6 +15,18 @@ export * from './components/page-not-found/page-not-found.component';
 export * from './pipes/vndcurrency.pipe';
 export * from './validations/PasswordValidator';
 export * from './validations/EqualValidator';
+export * from './services/additional-fees.service';
+export * from './services/brand.service';
+export * from './services/car.service';
+export * from './services/cartype.service';
+export * from './services/damage-assessment.service';
+export * from './services/feature.service';
+export * from './services/fileUpload.service';
+export * from './services/payment.service';
+export * from './services/rental-contracts.service';
+export * from './services/rental-documents.service';
+export * from './services/rental-request.service';
+export * from './services/vehicle-handover.service';
 
 @NgModule({
   imports: [

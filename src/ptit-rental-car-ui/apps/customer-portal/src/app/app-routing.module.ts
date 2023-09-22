@@ -5,8 +5,8 @@ import {ServiceComponent} from "./pages/service/service.component";
 import {ContactComponent} from "./pages/contact/contact.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {ProductListComponent} from "./pages/product/product-list.component";
-import {ProductDetailComponent} from "./pages/product/product-detail.component";
 import {PageNotFoundComponent} from "@ptit.rentalcar.shared";
+import {ProductDetailComponent} from "./pages/product/product-detail.component";
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },

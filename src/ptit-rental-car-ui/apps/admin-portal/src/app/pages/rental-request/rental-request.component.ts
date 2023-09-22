@@ -1,29 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {BaseCRUDComponent} from "../base-crudcomponent";
+import {Component, OnInit} from '@angular/core';
+import {BaseComponent} from "../base.component";
 import {ToastrService} from "ngx-toastr";
-import {RentalRequestService} from "./rental-request.service";
 import {
-  ColumnChooserService,
   ColumnModel,
   CommandClickEventArgs,
-  CommandColumnService,
   CommandModel,
-  EditService,
   EditSettingsModel,
-  ExcelExportService,
-  FilterService,
-  GridComponent,
-  GroupService,
   IEditCell,
-  PageService,
-  PdfExportService,
-  SortService,
-  ToolbarItems,
-  ToolbarService
+  ToolbarItems
 } from "@syncfusion/ej2-angular-grids";
 import {DropDownList} from "@syncfusion/ej2-angular-dropdowns";
-import {RentalContractsService} from "../rental-contracts/rental-contracts.service";
-import {CarService} from "../cars/car.service";
 import {firstValueFrom} from "rxjs";
 import {
   CreateRentalContract,
@@ -32,14 +18,15 @@ import {
   RentalRequestEnumDescriptions
 } from "@ptit.rentalcar.data-models";
 import {DatetimeUtils} from "@ptit.rentalcar.utils";
+import {CarService, RentalContractsService, RentalRequestService} from "@ptit.rentalcar.shared";
 
 @Component({
   selector: 'app-rental-request',
   templateUrl: './rental-request.component.html',
   styleUrls: ['./rental-request.component.css'],
-  providers: [PageService, GroupService, SortService, FilterService, EditService, ToolbarService, ColumnChooserService, ExcelExportService, PdfExportService, CommandColumnService]
+  providers: [RentalRequestService, RentalContractsService, CarService]
 })
-export class RentalRequestComponent extends BaseCRUDComponent<RentalRequest> implements OnInit {
+export class RentalRequestComponent extends BaseComponent<RentalRequest> implements OnInit {
   statusDropdown: DropDownList;
   statusData: object[];
   editStatusOption?: IEditCell;
@@ -51,9 +38,6 @@ export class RentalRequestComponent extends BaseCRUDComponent<RentalRequest> imp
     mode: 'Normal'
   };
   commands: CommandModel[];
-  @ViewChild('grid', {static: true})
-  public grid?: GridComponent;
-
   constructor(private readonly rentalRequestService: RentalRequestService,
               private readonly toastService: ToastrService,
               private readonly rentalContractService: RentalContractsService,

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OidcSecurityService} from "angular-auth-oidc-client";
 import {environment} from "@ptit.rentalcar.app-config";
+import {MenuItemModel} from "@syncfusion/ej2-angular-navigations";
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import {environment} from "@ptit.rentalcar.app-config";
 })
 export class HeaderComponent implements OnInit {
   isAuthenticated = false;
+  profileMenu: MenuItemModel[];
   constructor(private readonly oidcSecurityService: OidcSecurityService) {
   }
 
@@ -16,6 +18,25 @@ export class HeaderComponent implements OnInit {
     this.oidcSecurityService.checkAuth().subscribe((auth) =>
       this.isAuthenticated = auth.isAuthenticated
     );
+
+    this.profileMenu = [
+      {
+        text: 'Profile',
+        iconCss: 'e-icons e-profile',
+        items: [
+          {
+            text: 'My Profile',
+            iconCss: 'e-icons e-profile',
+            url: '/profile',
+          },
+          {
+            text: 'Sign Out',
+            iconCss: 'e-icons e-logout',
+            url: '/signout'
+          }
+        ]
+      }
+    ];
   }
 
   userInfo() {
